@@ -1,0 +1,247 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title >
+      Familia Lopez
+      </ion-title>
+
+       <button class="salir" ion-button block (click)="salir()">
+        <ion-icon name="log-out">Salir</ion-icon>
+        </button>
+    
+        
+  </ion-navbar>
+  
+</ion-header>
+
+<ion-content padding>
+
+
+  <ion-list class="lista">
+
+  <div class="speech-wrapper" color="secondary" *ngFor="let m of messages">
+    <ion-avatar>
+      <img class="avatar" src="{{m.foto}}">
+    </ion-avatar>
+
+    <div class="bubble" *ngIf="this.nombre.localeCompare(m.nombre)!=0" >
+     
+      <div class="txt">
+        <p class="name">{{m.nombre}} ({{m.fecha}})</p>
+        <p class="message">{{m.mensaje}}</p>
+        <span class="timestamp">{{m.hora}}</span>
+      </div>
+      
+      <div class="bubble-arrow">   
+        
+        </div>
+      
+    </div>
+
+      <!--Aqui agregue el mensaje  alterno-->
+        <div class="bubble alt" *ngIf="this.nombre.localeCompare(m.nombre)===0" >
+            
+           
+
+          <div class="txt">
+            <p class="name alt">{{m.nombre}} <span> ({{m.fecha}})</span></p>
+            <p class="message">{{m.mensaje}}</p>
+            <span class="timestamp">{{m.hora}}</span>
+          </div>
+          
+          <div class="bubble-arrow alt">   
+              <ion-avatar>
+                <img class="avatar" src="{{m.foto}}">
+              </ion-avatar>
+              </div>
+         
+        </div>
+      
+
+
+  </div>
+    
+ 
+</ion-list>
+
+
+
+
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+
+      <ion-buttons start>
+          <button ion-button icon-left (click)="bajar()">
+            <ion-icon  slot="start" name="arrow-down"></ion-icon>
+          </button>
+        </ion-buttons>
+    
+
+    <ion-input placeholder="escribe algo..." [(ngModel)]="message" required></ion-input>
+
+   
+
+    <ion-buttons end>
+      <button ion-button icon-right (click)="sendMessage()">
+          Enviar
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+page-chat {
+  .content-md{
+    background: #3a2a2a;
+  }
+  
+}
+
+.mensaje{
+    background-color:#adffb0   ;
+    font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif	;
+    border: 0px;
+    color :black;
+    
+    margin-bottom: 30px;
+
+    border-radius: 10%;
+}
+
+.mensajeTexto{
+    color:black;
+}
+
+.avatar{
+  width:60px;
+  height:60px;
+  border-radius:60%; 
+}
+
+ 
+.lista{
+  background-color:#3a2a2a;
+}
+
+.salir{
+    background-color: #E59866;
+}
+
+ion-title{
+
+   text-align: center; 
+}
+
+
+.speech-wrapper{
+    padding: 30px 40px;
+    
+    .bubble{
+      width: 240px;
+      height: auto;
+      display: block;
+      background-color:#adffb0 ;
+      border-radius: 16px;
+      box-shadow: 2px 8px 5px #000;
+      position: relative;
+      //margin: 0 0 25px;
+      margin: 0 0 0;
+      margin-right:10%;
+      &.alt{
+        //margin: 0 0 0 60px;
+        margin: 0 0 0 110px;
+      }
+      .txt{
+        padding: 8px 55px 8px 14px;
+       // padding:6px 55px 8px 0px;
+        .name{
+          font-weight: 600;
+          font-size: 12px;
+          margin: 0 0 4px;
+          color: #3498db;
+          span{
+            font-weight: normal;
+            color: #b3b3b3;
+          }
+          &.alt{
+            color: #2ecc71;
+          }
+        }
+        .message{
+          font-size: 12px;
+          margin: 0;
+          color: #2b2b2b;
+        }
+        .timestamp{
+          font-size: 11px;
+          position: absolute;
+          bottom: 8px;
+          right: 10px;
+          text-transform: uppercase; color: #999
+        }
+      }
+      .bubble-arrow {
+        position: absolute;
+        width: 0;
+        bottom:21px;
+        left: -16px;
+        height: 0;
+        &.alt{
+          right: -5px;      
+          bottom: 21px;
+          left: auto;
+        }
+      }
+      .bubble-arrow:after {
+        content: "";
+        position: absolute;
+        border: 0 solid transparent;
+        border-top: 9px solid #adffb0 ;
+        border-radius: 0 20px 0;
+        width: 15px;
+        height: 30px;
+        transform: rotate(145deg);
+      }
+      .bubble-arrow.alt:after {
+        transform: rotate(45deg) scaleY(-1);
+      }
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+

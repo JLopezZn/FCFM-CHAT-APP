@@ -1,0 +1,26 @@
+<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content" persistent="true">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+  
+    <ion-content>
+      <ion-list >
+        <button menuClose ion-item *ngFor="let p of pages" (click)="menuFuncion(p)" style="background-color: #141514;color:#32db64" >
+        
+        {{p.title}}
+        
+        </button>
+      </ion-list>
+      <img src="https://firebasestorage.googleapis.com/v0/b/lcc-chat.appspot.com/o/Extras%2Fstickers%2Fenamorado.png?alt=media&token=6b2f72af-437c-46a3-a8d4-47b16d3651c9">
+
+        
+    </ion-content>
+  
+  </ion-menu>
+  
+  <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+  

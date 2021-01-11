@@ -1,0 +1,78 @@
+<!--
+  Generated template for the RegistrarPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Registrar</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  
+    <ion-navbar>
+        <ion-title>LLena Todos Los Datos</ion-title>
+        </ion-navbar>
+        
+        <ion-item>
+        <ion-label floating>Nombre</ion-label>
+        <ion-input type="text" [(ngModel)]="Ruser.nombre" required></ion-input>
+        </ion-item>
+        <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="text" [(ngModel)]="Ruser.email" requiered ></ion-input>
+        </ion-item>
+        <ion-item>
+        <ion-label floating >Contraseña  [6 caracteres minimo!]</ion-label>
+        <ion-input type="password" [(ngModel)]="Ruser.password" requiered></ion-input>
+        </ion-item>
+        
+        
+        <button ion-button block (click)="tomarFoto()">Tomar foto</button>
+        <button ion-button block (click)="Galeria()">Escoger de la Galeria</button>
+        
+        <ion-item *ngIf="this.tomoFoto">
+          <img src="{{this.foto}}">
+        </ion-item>
+        
+        
+        <button ion-button block (click)="registrar()">Registrar</button>
+        <button ion-button block color="danger" (click)="closeModal()">Cancelar</button>
+        
+
+
+  <!--
+<ion-navbar>
+<ion-title>LLena Todos Los Datos</ion-title>
+</ion-navbar>
+
+<ion-item>
+<ion-label floating>Nombre</ion-label>
+<ion-input type="text" [(ngModel)]="Ruser.nombre" required></ion-input>
+</ion-item>
+<ion-item>
+<ion-label floating>Email</ion-label>
+<ion-input type="text" [(ngModel)]="Ruser.email" requiered ></ion-input>
+</ion-item>
+<ion-item>
+<ion-label floating >Contraseña  [6 caracteres minimo!]</ion-label>
+<ion-input type="password" [(ngModel)]="Ruser.password" requiered></ion-input>
+</ion-item>
+
+
+<button ion-button block (click)="tomarFoto()">Tomar foto</button>
+<button ion-button block (click)="Galeria()">Escoger de la Galeria</button>
+
+<ion-item *ngIf="this.tomoFoto">
+  <img src="{{this.foto}}">
+</ion-item>
+
+
+<button ion-button block (click)="registrar()">Registrar</button>
+<button ion-button block color="danger" (click)="closeModal()">Cancelar</button>
+
+
+-->
+</ion-content>

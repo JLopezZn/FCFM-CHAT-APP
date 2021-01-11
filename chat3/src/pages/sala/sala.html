@@ -1,0 +1,151 @@
+<ion-header > 
+
+   
+  
+    <button ion-button menuToggle color="secondary">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <button ion-button color="secondary" (click)="regresar()"clear>       
+        <ion-icon name="arrow-back">Regresar</ion-icon>  
+        </button>
+
+
+  
+        
+    <button ion-button color="secondary" (click)="subirCamara()"clear>       
+      <ion-icon class="funcion" name="camera"></ion-icon>
+      </button>
+      
+      <!--
+      <button ion-button color="secondary" (click)="subirVideo" clear>       
+          <ion-icon class="funcion" name="videocam"></ion-icon>
+        </button>
+      -->
+      <button ion-button color="secondary" (click)="subirGaleria()" clear>
+      <ion-icon class="funcion" name="image"></ion-icon>
+      </button>
+      <!--
+      <button ion-button color="secondary" clear>       
+     <ion-icon class="funcion" name="folder"   ></ion-icon>
+     </button>
+     
+  
+     <button ion-button color="secondary" clear  (click)="Video()">
+     <ion-icon name="videocam"></ion-icon>
+     </button>
+     -->
+     <button ion-button color="secondary" (click)="ajustes()" clear>
+      <ion-icon name="settings"></ion-icon>          
+    </button>
+  
+  
+      <button ion-button color="secondary" clear  (click)="salir()">
+      <ion-icon class="funcion" name="log-out"  color="danger"  ></ion-icon>      
+      </button>
+       
+  
+           
+  
+    
+  </ion-header>
+  
+  <ion-content padding>
+  
+  
+    
+    <div class="message-wrap">
+  
+      <div *ngFor="let m of messages; let i=index"
+           class="message"
+           [class.left]=" this.user.nombre.localeCompare(m.nombre)!=0"
+           [class.right]=" this.user.nombre.localeCompare(m.nombre)===0">
+        <img class="user-img" src="{{m.foto}}" alt="" >
+        <!--Si  es texto-->
+        <div class="msg-detail" *ngIf="!isUrl(m.mensaje)&&m.tipo.localeCompare('texto')===0">
+          <div class="msg-info">
+            <p>
+              {{m.nombre}}&nbsp;&nbsp;&nbsp;{{m.fecha}}&nbsp;&nbsp;&nbsp;{{m.hora}}</p>
+             
+          </div>
+  
+          <div class="msg-content">
+            <span class="triangle"></span>
+            <p class="line-breaker ">{{m.mensaje}}</p>
+          </div>
+          
+             
+        </div>
+        
+        <!--SI es Link-->
+        <div class="msg-detail" *ngIf="isUrl(m.mensaje)&&m.tipo.localeCompare('texto')===0">
+          <div class="msg-info">
+            <p>
+              {{m.nombre}}&nbsp;&nbsp;&nbsp;{{m.fecha}} [{{m.hora}}]</p>
+          </div>
+  
+          <div class="msg-content">
+            <span class="triangle"></span>
+            <a class="line-breaker  " href="{{m.mensaje}}">{{m.mensaje}}</a>
+          </div>
+        </div>
+  
+       <!--si es foto-->
+       <div class="msg-detail" *ngIf="m.tipo.localeCompare('foto')===0">
+          <div class="msg-info">
+            <p>
+              {{m.nombre}}&nbsp;&nbsp;&nbsp;{{m.fecha}} [{{m.hora}}]</p>
+          </div>
+  
+          <div class="msg-content">
+            <span class="triangle"></span>
+           <img src="{{m.url}}">
+          </div>
+        </div>
+    
+        <!--si es video-->
+       <div class="msg-detail" *ngIf="m.tipo.localeCompare('video')===0">
+        <div class="msg-info">
+          <p>
+            {{m.nombre}}&nbsp;&nbsp;&nbsp;{{m.fecha}} [{{m.hora}}]</p>
+        </div>
+  
+        <div class="msg-content">
+          <span class="triangle"></span>
+          <video width="320" height="240" controls>
+            <source src="{{m.url}}" type="video/mp4">
+            <source src="{{m.url}}" type="video/ogg">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+       
+  
+      </div>
+  
+    </div>
+     
+  
+  </ion-content>
+  
+  <ion-footer>
+    <ion-toolbar>
+  
+        <ion-buttons start>
+            <button ion-button icon-left (click)="bajar()">
+              <ion-icon  slot="start" color ="primary" name="arrow-down"></ion-icon>
+            </button>
+          </ion-buttons>
+      
+  
+      <ion-input class="placeh" placeholder="escribe algo..." [(ngModel)]="message" required></ion-input>
+  
+     
+  
+      <ion-buttons end>
+        <button ion-button icon-right (click)="enviarMensaje()">
+          <ion-icon name="send" color="primary"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+  

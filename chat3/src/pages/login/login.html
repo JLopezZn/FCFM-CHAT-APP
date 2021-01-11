@@ -1,0 +1,46 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    
+
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+  
+</ion-header>
+
+<ion-content padding>
+    <ion-card class="car">
+        <ion-card-header class="cardH"></ion-card-header>
+        <ion-card-content>
+          
+            
+          <div class="animated infinite tada delay-1s"><img src="https://firebasestorage.googleapis.com/v0/b/lcc-chat.appspot.com/o/Extras%2Fbison.png?alt=media&token=f37904a1-11ed-4cb1-8900-b11bb185961c" style="width:70px;height:70px;"></div>
+             
+            
+          
+          <ion-item class="car">
+              <ion-label floating  class="car">Email</ion-label>
+              <ion-input type="text" [(ngModel)]="user.email" requiered class="car" ></ion-input>
+            </ion-item>
+            <ion-item class="car" > 
+                <ion-label floating class="car">Contraseña</ion-label>
+                <ion-input type="password" [(ngModel)]="user.password" requiered class="car"></ion-input>
+            </ion-item>
+  
+    
+             <button ion-button block class="buttonM" (click)="login()"><ion-icon slot="open" name="open" class="i">
+    
+             </ion-icon>Login</button>
+            <button  ion-button block  class="buttonM"  (click)="openModal()" ><ion-icon slot="person"name="person" class="i">
+    
+            </ion-icon>Agregar Cuenta</button>
+        </ion-card-content>
+      </ion-card>
+    
+</ion-content>

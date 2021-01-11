@@ -1,0 +1,176 @@
+
+  ion-content .scroll-content {
+    background-color: #141514;
+  }
+
+  .header {
+    background-color: #242329;
+
+  }
+
+  ion-title{
+    text-align: center;
+    .GrupoNombre{
+      color:"white";
+    }
+    
+  }
+
+  .my-custom-menu {
+    --width: 500px;
+  }
+
+  .toolbar-background {
+    background-color:#242329;
+    color:#c5c5c5;
+  }
+
+  .salir{
+    background-color: #45425a;
+  }
+
+  .placeh{
+    background-color: 271e1e;
+    color:white;
+  }
+
+  .line-breaker {
+    white-space: pre-line;
+  }
+
+  .input-wrap {
+    padding: 5px;
+    display: flex;
+    textarea {
+      flex: 1;
+      border: 0;
+      border-bottom: 1px blueviolet;
+      border-style: solid;
+    }
+  }
+
+  .message-wrap {
+    padding: 0 10px;
+    .message {
+      position: relative;
+      padding: 7px 0;
+      .user-img {
+        position: absolute;
+        border-radius: 45px;
+        width: 45px;
+        height: 45px;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.36);
+      }
+
+      .msg-detail {
+        width: 100%;
+        display: inline-block;
+        p {
+          margin: 0;
+        }
+        .msg-info {
+          p {
+            font-size: .8em;
+            color: #888;
+          }
+        }
+
+        .msg-content {
+          position: relative;
+          margin-top: 5px;
+          
+          padding: 8px;
+          border: 1px solid #ddd;
+          color: #fff;
+          width: auto;
+          max-width: 80%;
+          span.triangle {
+            background-color: #fff;
+            border-radius: 2px;
+            height: 8px;
+            width: 8px;
+            top: 12px;
+            display: block;
+            border-style: solid;
+            border-color: #ddd;
+            border-width: 1px;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            position: absolute;
+          }
+        }
+
+      }
+    }
+
+    .message.left {
+      .msg-content {
+        background-color:  #3e219a;
+        float: left;
+      }
+      .msg-detail {
+        padding-left: 60px;
+      }
+      .user-img {
+        margin-top:5%;
+        left: 0;
+      }
+      .msg-content {
+        color: #ffe9e9;
+       // border-radius: 15%;
+        span.triangle {
+          border-top-width: 0;
+          border-right-width: 0;
+          left: -5px;
+          background-color: #3e219a;
+
+        }
+      }
+
+    }
+
+    .message.right {
+      .msg-detail {
+        padding-right: 60px;
+        .msg-info {
+          text-align: right;
+        }
+      }
+      .user-img {
+        right: 0;
+        margin-top:5%;
+      }
+      ion-spinner {
+        position: absolute;
+        right: 10px;
+        top: 50px;
+      }
+      .msg-content {
+        background-color: #e08c24;
+        float: right;
+        //border-radius: 15%;
+        span.triangle {
+          background-color: #e08c24;
+          border-bottom-width: 0;
+          border-left-width: 0;
+          right: -5px;
+        }
+      }
+
+    }
+
+  }
+
+
+  .funciones{
+    margin-left:50% ; 
+   .funcion{
+     height: 25%;
+     width: 35%;
+     margin-left:5px;
+   }
+
+
+
+
+  }
